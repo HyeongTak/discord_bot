@@ -1,0 +1,22 @@
+{
+  "name": "discord_bot",
+  "version": "1.0.0",
+  "description": "디스코드 봇 테스트",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyeongTak/discord_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HyeongTak/discord_bot/issues"
+  },
+  "homepage": "https://github.com/HyeongTak/discord_bot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
