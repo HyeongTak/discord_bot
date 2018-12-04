@@ -33,10 +33,10 @@ function rice(message){
         for(var i=0;i<3;i++){
             var n = riceArr[i].length;
             for(var j=0;j<n;j++){
+                riceArr[i] = riceArr[i].split('*')[0];
                 riceArr[i] = riceArr[i].replace('\n','');
                 riceArr[i] = riceArr[i].replace('에너지단백질칼슘철분','');
                 riceArr[i] = riceArr[i].replace('/','');
-                riceArr[i] = riceArr[i].replace('*','');
             }
         }
         
@@ -44,9 +44,6 @@ function rice(message){
         for(var i=0; i<3; i++){
           gub[i] = new Array();
         }
-        gub[0].push('**아침**');
-        gub[1].push('**점심**');
-        gub[2].push('**저녁**');
         for(var i=0; i<3; i++){
           var data = riceArr[i].split(/\s+/);
           for(var j=0; j<data.length; j++){
@@ -55,13 +52,11 @@ function rice(message){
         }
 
         const embed = new RichEmbed()
-      // Set the title of the field
         .setTitle('오늘의 급식')
-        // Set the color of the embed
-        .setColor(0xFF0000)
-        // Set the main content of the embed
-        .setDescription(gub[0].concat(gub[1]).concat(gub[2]));
-      // Send the embed to the same channel as the message
+        .setAuthor("영양사화랑", "https://imgur.com/NedsA7M")
+        .setColor(3447003)
+        .setDescription("안녕하세요? 저는 GSM의 영양사 최화랑입니다. 오늘의 급식을 알려드리겠습니다.")
+        .addField("아침", gub[0]);
         message.channel.send(embed);
 
     });
@@ -92,6 +87,15 @@ client.on("message", message => {
         message.channel.send("```"+data+"```");
       }
     });
+  }
+  if (command === "help"){
+    const embed = new RichEmbed()
+        .setAuthor("전형찬")
+        .setTitle("도움반입니다.")
+        
+        .setColor(0xFF0000)
+        .setDescription("안녕하세요");
+        message.channel.send(embed);
   }
 });
  
