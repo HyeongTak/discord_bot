@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(){
+	int a,b,c;
+	char d,e;
+
+	
+	scanf("%d %d",&a,&b);
+	
+	printf("%d + %d = %d\n%d - %d = %d\n%d * %d = %d\n%d / %d = %d\n%d %c %d = %d",a,b,a+b,a,b,a-b,a,b,a*b,a,b,a/b,a,'%',b,a%b);			
+	return 0;
+
+}

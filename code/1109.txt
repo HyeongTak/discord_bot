@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+	float a;
+	char b[20],c,d;
+	int e;
+	
+	scanf("%s %d %c %f",b,&e,&c,&a);
+	
+	printf("%s\n%d\n%c\n%g",b,e,c,a);			
+	return 0;
+}

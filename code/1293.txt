@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int main()
+{
+	int i, n,t, mx = -10000, mn = 10000;
+	
+	scanf("%d", &n);
+	for(i = 0; i<n; i++)
+	{
+		scanf("%d",&t);
+		if(t>mx)
+			mx = t;
+		if(t<mn)
+			mn = t;
+	}
+	printf("%d %d", mx, mn);
+}

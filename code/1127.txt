@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(){
+	int a,b,c,f,g,h,i,n;
+	char d,e;
+	float a1,b1,c1,f1,g1,h1,i1,n1;
+	
+	scanf("%f %d",&a1,&b);
+	scanf("%f %d",&c1,&f);
+	scanf("%f %d",&g1,&h);
+	
+	printf("%.1f",((a1*b)+(c1*f)+(g1*h)));
+	
+	return 0;
+
+}

@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int main()
+{
+	int n, n2,n3,i, s = 0;
+	scanf("%d%d%d", &n,&n2,&n3);
+	
+	for(i = n; i>0; i--)
+	{
+		if(n%i == 0 && n2%i == 0 && n3%i == 0)
+			{
+				s = i;
+				break;
+			}
+	}
+	printf("%d",s);
+}

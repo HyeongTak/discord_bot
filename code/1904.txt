@@ -1,0 +1,19 @@
+#include <stdio.h>
+  
+int a, b;
+  
+void f(int n)
+{
+    if(n < a)
+        return ;
+    f(n-1);
+    if(n % 2 == 1)
+        printf("%d ", n);
+}
+  
+int main()
+{
+    scanf("%d %d", &a, &b);
+    f(b);
+    return 0;
+}

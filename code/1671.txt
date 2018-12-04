@@ -1,0 +1,18 @@
+#include <stdio.h>
+ 
+int main()
+{
+    int a, b, res, t;
+     
+    scanf("%d %d", &a, &b);
+     
+    if (a) t = a;
+     
+    a = 0;
+    b = (3 + b - t) % 3;
+     
+    if (b==0) printf("¹«½ÂºÎ");
+    else if (b==1) printf("½Â¸®");
+    else printf("ÆÐ¹è");
+    return 0;
+}

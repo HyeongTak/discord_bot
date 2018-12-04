@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+int a;
+scanf("%d", &a);
+
+int i, j;
+for(j = 1; j <= a; j++)
+{
+	for(i = 1; i <= j; i++)
+	{
+		printf("%d ", i);
+	}
+printf("\n");
+}
+
+return 0;
+}

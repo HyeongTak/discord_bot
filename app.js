@@ -42,13 +42,13 @@ function rice(message){
         for(var i=0; i<3; i++){
           gub[i] = new Array();
         }
-        gub[0].push('아침');
-        gub[1].push('점심');
-        gub[2].push('저녁');
+        gub[0].push('**아침**');
+        gub[1].push('**점심**');
+        gub[2].push('**저녁**');
         for(var i=0; i<3; i++){
           var data = riceArr[i].split(/\s+/);
           for(var j=0; j<data.length; j++){
-            if(data[j] !== '') gub[i].push('-' + data[j]);
+            if(data[j] !== '') gub[i].push(' - ' + data[j]);
           }
         }
 
@@ -73,10 +73,10 @@ client.on("ready", () => {
  
 client.on("message", message => {
   if (message.content == "안녕") {
-    message.channel.send("안녕하세요. 저는 GSM에서 질량이 가장 큰 최화랑입니다.");
+    message.channel.send("안녕하세요. 저는 GSM에서 **질량**이 가장 **큰** 최화랑입니다.");
   }
   if (message.content == "몸무게") {
-    message.channel.send("제 몸무게는 130kg 입니다.");
+    message.channel.send("제 몸무게는 __**132kg**__ 입니다.");
   }
   if (message.content == "급식") {
     rice(message);

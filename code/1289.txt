@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+int main()
+{
+	int a, a2, b, b2, c, c2, s;
+	
+	scanf("%d%d%d%d%d%d",&a,&a2,&b,&b2,&c,&c2);
+	s = 0;
+	if(a * a2 > s)
+		s = a*a2;
+	if(b * b2 > s)
+		s = b * b2;
+	if(c*c2 > s)
+		s = c*c2;
+	printf("%d",s);
+	return 0;
+}
