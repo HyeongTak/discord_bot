@@ -60,7 +60,6 @@ function rice(message){
         .addField("점심", gub[1])
         .addField("저녁", gub[2]);
         message.channel.send(embed);
-
     });
   });
 }
@@ -90,13 +89,14 @@ client.on("message", message => {
       }
     });
   }
-  if (command === "help"){
+  if (command === "help" || command === "소환"){
     const embed = new RichEmbed()
-        .setAuthor("전형찬")
-        .setTitle("도움반입니다.")
-        
-        .setColor(0xFF0000)
-        .setDescription("안녕하세요");
+        .setTitle('GSM학생 부회장인 제가 사용법을 알려드리겠습니다.')
+        .setColor(3447003)
+        .setDescription("안녕하세요? 광주 소프트웨어 마이스터고등학교의 학생이기도 합니다. 오늘은 제 얘기만 해야 하는데요, 차마 제 얘기만 할 수 없어서 도움말을 알려 드리겠습니다.")
+        .setThumbnail("https://i.imgur.com/pElxVsb.jpg")
+        .addField("급식", " 제가 오늘의 영양사가 되어서 오늘의 급식을 알려 드리겠습니다.")
+        .addField("코드업 (번호)", "코드업 띄우고 번호를 입력하시면 코드업 정답을 나재희 선생님 몰래 알려드립니다. 다 있지는 않습니다.")
         message.channel.send(embed);
   }
 });
