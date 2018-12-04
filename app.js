@@ -53,10 +53,12 @@ function rice(message){
 
         const embed = new RichEmbed()
         .setTitle('오늘의 급식')
-        .setAuthor("영양사화랑", "https://imgur.com/NedsA7M")
         .setColor(3447003)
         .setDescription("안녕하세요? 저는 GSM의 영양사 최화랑입니다. 오늘의 급식을 알려드리겠습니다.")
-        .addField("아침", gub[0]);
+        .setThumbnail("https://i.imgur.com/2lR7eTd.jpg")
+        .addField("아침", gub[0])
+        .addField("점심", gub[1])
+        .addField("저녁", gub[2]);
         message.channel.send(embed);
 
     });
