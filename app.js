@@ -2,6 +2,7 @@ const { Client, RichEmbed } = require('discord.js');
 const client = new Client();
 var cheerio = require('cheerio');
 var request = require('request');
+var fs = require('fs');
 
 function rice(message){
   request('http://www.gsm.hs.kr/xboard/board.php?tbnum=8', function(error, response, html){
@@ -72,14 +73,23 @@ client.on("ready", () => {
 });
  
 client.on("message", message => {
-  if (message.content == "안녕") {
+  var msg = message.content.split(/\s+/);
+  var command = msg[0];
+  if (command === "안녕") {
     message.channel.send("안녕하세요. 저는 GSM에서 **질량**이 가장 **큰** 최화랑입니다.");
   }
-  if (message.content == "몸무게") {
+  if (command === "몸무게") {
     message.channel.send("제 몸무게는 __**132kg**__ 입니다.");
   }
-  if (message.content == "급식") {
+  if (command === "급식") {
     rice(message);
+  }
+  if (command === "코드업"){
+    fs.readFile('./code/'+msg[1]+'.txt', 'utf8', function(err, data){
+      if(err) message.channel.send("그건없어요...");
+      message.channel.send(msg[1]+"번 코드업 문제 정답입니다.");
+      message.channel.send("```"+data+"```");
+    });
   }
 });
  
