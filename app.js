@@ -1,12 +1,10 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Client, RichEmbed } = require('discord.js');
+const client = new Client();
 var cheerio = require('cheerio');
 var request = require('request');
 
-var url = 'http://www.gsm.hs.kr/xboard/board.php?tbnum=8';
-
 function rice(message){
-  request(url, function(error, response, html){
+  request('http://www.gsm.hs.kr/xboard/board.php?tbnum=8', function(error, response, html){
     var $ = cheerio.load(html);
     S = ".today";
     $(S).each(function(){
@@ -21,6 +19,7 @@ function rice(message){
             }
         }
         
+        
         var rice = rice.replace('\n(월)\n\n\n\n','');
         var rice = rice.replace('\n(화)\n\n\n\n','');
         var rice = rice.replace('\n(수)\n\n\n\n','');
@@ -28,7 +27,6 @@ function rice(message){
         var rice = rice.replace('\n(금)\n\n\n\n','');
         var riceArr = rice.split('\n\n\n\n\n');
         console.log("PAGE LOADED");
-
         
         for(var i=0;i<3;i++){
             var n = riceArr[i].length;
@@ -40,20 +38,37 @@ function rice(message){
             }
         }
         
-        message.channel.send("오늘의 급식입니다.");
-        message.channel.send("아침");
-        message.channel.send("``"+riceArr[0]+'``');
-        message.channel.send("점심");
-        message.channel.send("``"+riceArr[1]+'``');
-        message.channel.send("저녁");
-        message.channel.send("``"+riceArr[2]+'``');
+        var gub = new Array(3);
+        for(var i=0; i<3; i++){
+          gub[i] = new Array();
+        }
+        gub[0].push('아침');
+        gub[1].push('점심');
+        gub[2].push('저녁');
+        for(var i=0; i<3; i++){
+          var data = riceArr[i].split(/\s+/);
+          for(var j=0; j<data.length; j++){
+            if(data[j] !== '') gub[i].push('-' + data[j]);
+          }
+        }
+
+        const embed = new RichEmbed()
+      // Set the title of the field
+        .setTitle('오늘의 급식')
+        // Set the color of the embed
+        .setColor(0xFF0000)
+        // Set the main content of the embed
+        .setDescription(gub[0].concat(gub[1]).concat(gub[2]));
+      // Send the embed to the same channel as the message
+        message.channel.send(embed);
+
     });
   });
 }
 
-
 client.on("ready", () => {
   console.log("준비 완료!");
+  message => {message.channel.send("화랑봇 준비완료!!");}
 });
  
 client.on("message", message => {
