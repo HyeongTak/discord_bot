@@ -3,6 +3,7 @@ const client = new Client();
 var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
+var token = require('./token');
 
 function rice(message){
   request('http://www.gsm.hs.kr/xboard/board.php?tbnum=8', function(error, response, html){
@@ -87,10 +88,12 @@ client.on("message", message => {
   if (command === "코드업"){
     fs.readFile('./code/'+msg[1]+'.txt', 'utf8', function(err, data){
       if(err) message.channel.send("그건없어요...");
-      message.channel.send(msg[1]+"번 코드업 문제 정답입니다.");
-      message.channel.send("```"+data+"```");
+      else{
+        message.channel.send(msg[1]+"번 코드업 문제 정답입니다.");
+        message.channel.send("```"+data+"```");
+      }
     });
   }
 });
  
-client.login("NTE5MzgxMDYzMDAxMTc4MTI1.Duenvg.437cgDlvCWh_ilmoxPF4g85ijwM"); 
+client.login(token.token); 
