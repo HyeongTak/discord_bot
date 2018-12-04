@@ -70,7 +70,6 @@ function rice(message){
 
 client.on("ready", () => {
   console.log("준비 완료!");
-  message => {message.channel.send("화랑봇 준비완료!!");}
 });
  
 client.on("message", message => {
