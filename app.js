@@ -66,6 +66,7 @@ function rice(message){
 
 client.on("ready", () => {
   console.log("준비 완료!");
+  client.user.setActivity("league of legends");
 });
  
 client.on("message", message => {
@@ -101,4 +102,8 @@ client.on("message", message => {
   }
 });
  
+client.on("guildMemberAdd", (member) => {
+  newUsers.set(member.id, member.user);
+});
+
 client.login(token.token); 
